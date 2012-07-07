@@ -25,20 +25,20 @@ app.listen(port, function() {
 });
 
 app.dynamicHelpers({
-  'host': function(req, res) {
+  host: function(req, res) {
     return req.headers['host'];
   },
-  'scheme': function(req, res) {
-    req.headers['x-forwarded-proto'] || 'http'
+  scheme: function(req, res) {
+    return req.headers['x-forwarded-proto'] || 'http';
   },
-  'url': function(req, res) {
+  url: function(req, res) {
     return function(path) {
-      return app.dynamicViewHelpers.scheme(req, res) + app.dynamicViewHelpers.url_no_scheme(path);
+      return app.dynamicViewHelpers.scheme(req, res) + app.dynamicViewHelpers.url_no_scheme(req, res)(path);
     }
   },
-  'url_no_scheme': function(req, res) {
+  url_no_scheme: function(req, res) {
     return function(path) {
-      return '://' + app.dynamicViewHelpers.host(req, res) + path;
+      return '://' + app.dynamicViewHelpers.host(req, res) + (path || '');
     }
   },
 });
@@ -101,3 +101,6 @@ function handle_facebook_request(req, res) {
 
 app.get('/', handle_facebook_request);
 app.post('/', handle_facebook_request);
+
+// fb lap timer specific stuff
+require('./routes')(app);
