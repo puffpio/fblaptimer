@@ -9,6 +9,8 @@ module.exports = function(app){
       res.render('track.ejs', {	  
         layout: false,
         app_id: process.env.FACEBOOK_APP_ID,
+	og_url: 'https://' + req.headers['host'] + '/track/' + req.params.track,
+	og_image: 'https://' + req.headers['host'] + '/images/' + track.image,
 	track_id: req.params.track,
 	track: track
       });

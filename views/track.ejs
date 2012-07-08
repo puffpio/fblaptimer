@@ -7,8 +7,8 @@
 
     <meta property="og:title" content="<%= track.name %>" />
     <meta property="og:type" content="fblaptimer:track" />
-    <meta property="og:url" content="<%= url('/tracks/' + track_id) %>" />
-    <meta property="og:image" content="<%= url('/images/' + track.image) %>" />
+    <meta property="og:url" content="<%= og_url %>" />
+    <meta property="og:image" content="<%= og_image %>" />
     <meta property="og:description" content="<%= track.description %>" />
     <meta property="fb:app_id" content="<%= app_id %>" />
     <meta property="place:location:latitude" content="<%= track.latitude %>" />
@@ -17,7 +17,7 @@
   <body>
     <h1><%= track.name %></h1>
     <h2><%= track.description %></h2>
-    <img src="<%= url('/images/' + track.image) %>" />
+    <img src="<%= '/images/' + track.image %>" />
   </body>
 </html>
 
