@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <headi prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# fblaptimer: http://ogp.me/ns/fb/fblaptimer#">
+    <meta charset="utf-8" />
+
+    <title><%= lap.name %></title>
+
+    <meta property="og:title" content="<%= lap.name %>" />
+    <meta property="og:type" content="fblaptimer:lap" />
+    <meta property="og:url" content="<%= og_url %>" />
+    <meta property="og:image" content="<%= og_image %>" />
+    <meta property="og:description" content="<%= lap.description %>" />
+    <meta property="fb:app_id" content="<%= app_id %>" />
+    <meta property="fblaptimer:time" content="<%= lap.time %>" />
+    <meta property="fblaptimer:top_speed" content="<%= lap.top_speed %>" />
+    <meta property="fblaptimer:track" content="<%= track_url %>" />
+  </head>
+  <body>
+    <h1><%= lap.name %></h1>
+    <h2><%= lap.description %></h2>
+    <h2><%= lap.time %></h2>
+    <h2><%= lap.top_speed %></h2>
+    <img src="<%= og_image %>" />
+  </body>
+</html>
+
