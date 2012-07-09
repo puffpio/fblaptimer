@@ -6,12 +6,13 @@ module.exports = function(app){
     // if a track is supplied and exists
     if (req.params.track && tracks[req.params.track]) {
       var track = tracks[req.params.track];
+      var og_url = resources.getTrackURI(req, req.params.track);
       var og_image = resources.getImageURI(req, track.image);
 
       res.render('track.ejs', {	  
         layout: false,
         app_id: process.env.FACEBOOK_APP_ID,
-	og_url: 'https://' + req.headers['host'] + '/track/' + req.params.track,
+	og_url: og_url,
 	og_image: og_image,
 	track_id: req.params.track,
 	track: track
