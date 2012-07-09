@@ -8,7 +8,7 @@
     "async":     "0.1.x",
     "ejs":       "0.7.x",
     "express":   "2.4.6",
-    "faceplate": "0.0.4"
+    "faceplate": "0.2.x"
   },
 
   "engines": {
