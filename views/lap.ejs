@@ -14,6 +14,9 @@
     <meta property="fblaptimer:time" content="<%= lap.time %>" />
     <meta property="fblaptimer:top_speed" content="<%= lap.top_speed %>" />
     <meta property="fblaptimer:track" content="<%= track_url %>" />
+    <% for (var i = 0; i < lap.coordinates.length; i++) { %>                   
+    <meta property="fblaptimer:coordinates:latitude" content="<%= lap.coordinates[i].latitude %>" />
+    <meta property="fblaptimer:coordinates:longitude" content="<%= lap.coordinates[i].longitude %>" /><% } %>
   </head>
   <body>
     <h1><%= lap.name %></h1>

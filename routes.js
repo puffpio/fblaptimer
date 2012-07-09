@@ -47,7 +47,11 @@ module.exports = function(app){
 	    description: 'bar',
 	    time: 1,
 	    top_speed: 2,
-	    track: 'thunderhill'
+	    track: 'thunderhill',
+	    coordinates: [
+	      { latitude: 39.543820, longitude: -122.328909 },
+	      { latitude: 39.544581, longitude: -122.329832 }
+	    ]
 	  };
 
 	  var og_url = resources.getLapURI(req, req.params.lap);
