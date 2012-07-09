@@ -3,7 +3,7 @@ var tracks = require('./data/tracks').Tracks;
 
 function renderOr404(res, isRoute, errorMessage, cb) {
   if (isRoute) {
-    if (cb) { cb(); }
+    cb();
   } else {
     res.send(errorMessage, 404);
   }
