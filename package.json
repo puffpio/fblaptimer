@@ -7,7 +7,7 @@
   "dependencies": {
     "async":     "0.1.x",
     "ejs":       "0.7.x",
-    "express":   "2.4.6",
+    "express":   "2.x",
     "faceplate": "0.2.x"
   },
 
