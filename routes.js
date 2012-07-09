@@ -6,7 +6,7 @@ module.exports = function(app){
     // if a track is supplied and exists
     if (req.params.track && tracks[req.params.track]) {
       var track = tracks[req.params.track];
-      var og_image = resources.getImagePath(req, track.image);
+      var og_image = resources.getImageURI(req, track.image);
 
       res.render('track.ejs', {	  
         layout: false,
