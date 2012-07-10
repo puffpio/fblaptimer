@@ -1,5 +1,7 @@
 var db = require('./lib/db');
+var og = require('./lib/og');
 var resources = require('./lib/resources');
+
 var tracks = require('./data/tracks').Tracks;
 
 function renderOr404(res, isRoute, errorMessage, cb) {
@@ -66,7 +68,14 @@ module.exports = function(app){
 
       db.Laps.insertLap(lap, function(lap) {
         if (lap) {
-          res.json(resources.getLapURI(req, lap._id));
+          var lapURI = resources.getLapURI(req, lap._id);
+          if (req.body.access_token) {
+	    og.publishLap(lapURI, req.body.access_token, function(id) {
+	      console.log(id);
+	    });
+	  }
+
+          res.json(lapURI);
 	} else {
 	  res.send('Unable to add lap', 500);
 	}

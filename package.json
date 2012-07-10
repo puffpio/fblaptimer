@@ -9,7 +9,8 @@
     "ejs":       "0.7.x",
     "express":   "2.x",
     "faceplate": "0.2.x",
-    "mongodb": "1.x"
+    "mongodb": "1.x",
+    "restler": "2.x"
   },
 
   "engines": {
