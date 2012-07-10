@@ -8,6 +8,7 @@ var app = express.createServer(
   express.static(__dirname + '/public'),
   express.bodyParser(),
   express.cookieParser(),
+  express.favicon(),
   // set this to a secret value to encrypt session cookies
   express.session({ secret: process.env.SESSION_SECRET || 'secret123' }),
   require('faceplate').middleware({
