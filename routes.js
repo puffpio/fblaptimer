@@ -60,5 +60,21 @@ module.exports = function(app){
     }
   });
 
+  app.post('/laps', function(req, res) {
+    if (req.body.lap) {
+      var lap = JSON.parse(req.body.lap);
+
+      db.Laps.insertLap(lap, function(lap) {
+        if (lap) {
+          res.json(resources.getLapURI(req, lap._id));
+	} else {
+	  res.send('Unable to add lap', 500);
+	}
+      });
+    } else {
+      res.send('No lap submitted', 400);
+    }
+  });
+
   //other routes..
 }
