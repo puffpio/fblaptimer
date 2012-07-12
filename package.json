@@ -5,9 +5,10 @@
   "description": "Open graph enabled lap timer server code",
 
   "dependencies": {
-    "async":     "0.1.x",
-    "ejs":       "0.7.x",
-    "express":   "2.x",
+    "async": "0.1.x",
+    "csv: "0.x",
+    "ejs": "0.7.x",
+    "express": "2.x",
     "faceplate": "0.2.x",
     "mongodb": "1.x",
     "restler": "2.x"
