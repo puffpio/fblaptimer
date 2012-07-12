@@ -63,12 +63,12 @@ module.exports = function(app){
   });
 
   app.post('/laps', function(req, res) {
-    if (req.body.lap) {
+    if (req.body.lap && req.body.start && req.body.end) {
       var lap = JSON.parse(req.body.lap);
       var start = req.body.start;
       var end = req.body.end;
       var track = tracks[lap.track];
-
+      
       db.Laps.insertLap(lap, function(lap) {
         if (lap) {
           var lapURI = resources.getLapURI(req, lap._id);

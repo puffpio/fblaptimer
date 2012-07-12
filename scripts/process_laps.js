@@ -51,19 +51,15 @@ if (process.argv.length != 4) {
       lap.time += parseFloat(lapTime);
 
       var postData = {
-        lap: lap,
+        lap: JSON.stringify(lap),
 	start: startDate,
 	end: endDate,
 	access_token: access_token
       };
 
-      console.log(lap);
-      console.log(startDate);
-      console.log(endDate);
-
-      restler.post('https://fblaptimer.herokuapp.com/laps', postData)
+      restler.post('http://localhost:5000/laps', { data: postData })
         .on('complete', function(data) {
-        console.log(data);
+          console.log(data);
       });
     });
 }
