@@ -57,7 +57,7 @@ if (process.argv.length != 4) {
 	access_token: access_token
       };
 
-      restler.post('http://localhost:5000/laps', { data: postData })
+      restler.post('https://fblaptimer.herokuapp.com/laps', { data: postData })
         .on('complete', function(data) {
           console.log(data);
       });
