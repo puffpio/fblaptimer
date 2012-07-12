@@ -1,5 +1,5 @@
 var csv = require('csv');
-
+var restler = require('restler');
 var tracks = require('../data/tracks').Tracks;
 
 if (process.argv.length != 3) {
@@ -14,13 +14,19 @@ if (process.argv.length != 3) {
     track: 'thunderhill',
     coordinates: []
   };
-  var lapDate;
+  var startDate;
+  var endDate;
   var lapTime;
+  var count = 0;
 
   csv()
     .fromPath(__dirname + '/' + input, { columns: true })
     .on('data', function(data, index) {
-      lapDate = data['time='];
+      if (count === 0) { 
+	startDate = data['time='];
+	count++;
+      }
+      endDate = data['time='];
       lapTime = data['elapsed time='];
       
       var speed = parseFloat(data['speed=']);
@@ -43,7 +49,19 @@ if (process.argv.length != 3) {
       }
       lap.time += parseFloat(lapTime);
 
+      var postData = {
+        lap: lap,
+	start = startDatem
+	end = endDate
+      };
+
       console.log(lap);
-      console.log(lapDate);
+      console.log(startDate);
+      console.log(endDate);
+
+      restler.post('https://fblaptimer.herokuapp.com/laps', postData)
+        .on('complete', function(data) {
+        console.log(data);
+      });
     });
 }
