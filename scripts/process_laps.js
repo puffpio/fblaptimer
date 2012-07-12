@@ -2,10 +2,11 @@ var csv = require('csv');
 var restler = require('restler');
 var tracks = require('../data/tracks').Tracks;
 
-if (process.argv.length != 3) {
- console.log('Missing input file parameter');
+if (process.argv.length != 4) {
+ console.log('Missing input file parameter or access token');
 } else {
   var input = process.argv[2];
+  var access_token = process.argv[3];
   var lap = {
     name: '',
     description: '',
@@ -51,8 +52,9 @@ if (process.argv.length != 3) {
 
       var postData = {
         lap: lap,
-	start = startDatem
-	end = endDate
+	start: startDatem
+	end: endDate,
+	access_token: access_token
       };
 
       console.log(lap);
