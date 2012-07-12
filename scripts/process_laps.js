@@ -52,7 +52,7 @@ if (process.argv.length != 4) {
 
       var postData = {
         lap: lap,
-	start: startDatem
+	start: startDate,
 	end: endDate,
 	access_token: access_token
       };
