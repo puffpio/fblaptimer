@@ -5,8 +5,8 @@ var tracks = require('../data/tracks').Tracks;
 if (process.argv.length != 4) {
  console.log('Missing input file parameter or access token');
 } else {
-  var input = process.argv[2];
-  var access_token = process.argv[3];
+  var input = process.argv[3];
+  var access_token = process.argv[2];
   var lap = {
     name: '',
     description: '',
