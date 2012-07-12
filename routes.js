@@ -65,13 +65,15 @@ module.exports = function(app){
   app.post('/laps', function(req, res) {
     if (req.body.lap) {
       var lap = JSON.parse(req.body.lap);
+      var start = req.body.start;
+      var end = req.body.end;
       var track = tracks[lap.track];
 
       db.Laps.insertLap(lap, function(lap) {
         if (lap) {
           var lapURI = resources.getLapURI(req, lap._id);
           if (req.body.access_token) {
-	    og.publishLap(lapURI, track.fbid, req.body.access_token,
+	    og.publishLap(lapURI, track.fbid, start, end, req.body.access_token,
 	      function(id) {
 	        console.log(id);
 	    });
